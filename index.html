@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-site-verification" content="WYAm-8ocfOrjM8J2iF7SCrLtiR-jwvEVzB4pKFAch3k" />
+
   <title>AWS Digital Asset Samples</title>
   <meta
     name="description"
@@ -93,7 +93,7 @@
       font-size: clamp(1.05rem, 2vw, 1.22rem);
     }
 
-    .actions { margin-top: 32px; }
+    .actions { margin-top: 32px; display: flex; gap: 12px; }
 
     .button {
       display: inline-flex;
@@ -113,7 +113,53 @@
     .samples {
       display: grid;
       gap: 14px;
-      padding: 28px 0 58px;
+      padding: 16px 0 20px;
+    }
+
+    #sample-list,
+    #implementation-list {
+      scroll-margin-top: 90px;
+    }
+
+    .section-title {
+      margin: 44px 0 2px;
+      font-size: clamp(1.35rem, 3vw, 1.7rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+    }
+
+    .section-intro {
+      margin: 0;
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .builds-on-tag {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(125, 211, 252, 0.10);
+      border: 1px solid rgba(125, 211, 252, 0.24);
+      color: var(--link);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.005em;
+    }
+
+    .coming-soon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      width: 132px;
+      border-radius: 999px;
+      border: 1px dashed var(--border);
+      color: var(--muted-2);
+      font-size: 0.85rem;
+      font-weight: 700;
     }
 
     .sample {
@@ -130,7 +176,7 @@
       box-shadow: var(--shadow);
     }
 
-    .sample h2 {
+    .sample h3 {
       margin: 0;
       font-size: 1.22rem;
       line-height: 1.25;
@@ -257,21 +303,29 @@
         <h1>Reference architectures for digital asset workflows on AWS</h1>
 
         <p>
-          Explore AWS sample implementations for financial messaging integration,
-          settlement, tokenization, price feeds, proof-of-reserves, and digital
-          asset payments.
+          Explore reference patterns and example implementations for financial
+          messaging integration, settlement, tokenization, price feeds, proof of
+          reserves, and payments.
         </p>
 
         <div class="actions">
-          <a class="button" href="#sample-list">Browse samples</a>
+          <a class="button" href="#sample-list">Reference patterns</a>
+          <a class="button" href="#implementation-list">Example implementations</a>
         </div>
       </div>
     </section>
 
     <section id="sample-list">
+      <div class="container">
+        <h2 class="section-title">Reference patterns</h2>
+        <p class="section-intro">
+          Reusable architectures that show how to structure a digital asset
+          workflow on AWS. Start here to understand the building blocks.
+        </p>
+      </div>
       <div class="container samples">
         <article class="sample">
-          <h2>Bridging financial messaging systems to digital asset settlement</h2>
+          <h3>Bridging financial messaging systems to digital asset settlement</h3>
 
           <div class="sample-copy">
             <div>
@@ -309,7 +363,7 @@
         </article>
 
         <article class="sample">
-          <h2>Price Feeds &amp; Proof of Reserves</h2>
+          <h3>AWS CRE Price Feeds &amp; Proof of Reserves</h3>
 
           <div class="sample-copy">
             <div>
@@ -320,7 +374,7 @@
               <strong>Pattern</strong>
               <ol class="pattern-list">
                 <li><span>1</span>Expose price, reserve, or collateral data through AWS services.</li>
-                <li><span>2</span>Use Chainlink Runtime Environment (CRE) to fetch data and coordinate execution.</li>
+                <li><span>2</span>Use Chainlink CRE to fetch data and coordinate execution.</li>
                 <li><span>3</span>Update smart contracts with feed, reserve, or collateral state.</li>
               </ol>
             </div>
@@ -339,7 +393,7 @@
         </article>
 
         <article class="sample">
-          <h2>Serverless Digital Asset Payments</h2>
+          <h3>Serverless Digital Asset Payments</h3>
 
           <div class="sample-copy">
             <div>
@@ -373,6 +427,95 @@
             >
               Read blog
             </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="implementation-list">
+      <div class="container">
+        <h2 class="section-title">Example implementations</h2>
+        <p class="section-intro">
+          Concrete solutions that build on the reference patterns above to address a
+          specific digital asset use case.
+        </p>
+      </div>
+      <div class="container samples">
+        <article class="sample">
+          <h3>Delivery versus Payment (DvP)</h3>
+
+          <div class="sample-copy">
+            <div>
+              <strong>Use case</strong>
+              Settle tokenized securities atomically. Asset and payment transfer together or not at all
+            </div>
+            <div>
+              <strong>Pattern</strong>
+              <ol class="pattern-list">
+                <li><span>1</span>Escrow both legs of a trade (tokens and stablecoin) via smart contract.</li>
+                <li><span>2</span>Validate KYC allowlist, manage timeouts, and log audit events.</li>
+                <li><span>3</span>Execute atomic settlement. Swap or refund in a single transaction.</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="sample-actions">
+            <a
+              class="sample-link"
+              href="https://github.com/aws-samples/sample-digital-asset-delivery-vs-payment"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open repo
+            </a>
+          </div>
+        </article>
+
+        <article class="sample">
+          <h3>Tokenized deposits</h3>
+
+          <div class="sample-copy">
+            <span class="builds-on-tag">Builds on: Bridging financial messaging systems</span>
+            <div>
+              <strong>Use case</strong>
+              Issue and redeem tokenized commercial bank deposits from off-chain instructions
+            </div>
+            <div>
+              <strong>Pattern</strong>
+              <ol class="pattern-list">
+                <li><span>1</span>Receive a deposit or redemption instruction from a bank system.</li>
+                <li><span>2</span>Normalize, sign, store, and orchestrate the instruction.</li>
+                <li><span>3</span>Mint or burn deposit tokens on a private Hyperledger Besu network to match the ledger.</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="sample-actions">
+            <span class="coming-soon">Coming soon</span>
+          </div>
+        </article>
+
+        <article class="sample">
+          <h3>Derived equities backed by verifiable reserves</h3>
+
+          <div class="sample-copy">
+            <span class="builds-on-tag">Builds on: CRE Price Feeds &amp; Proof of Reserves</span>
+            <div>
+              <strong>Use case</strong>
+              Issue a tokenized equity backed by verifiable price and reserve data
+            </div>
+            <div>
+              <strong>Pattern</strong>
+              <ol class="pattern-list">
+                <li><span>1</span>Expose equity price and reserve data through AWS services.</li>
+                <li><span>2</span>Use Chainlink CRE to deliver feeds and verify collateral on-chain.</li>
+                <li><span>3</span>Mint, redeem, and rebalance synthetic stock tokens against reserves.</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="sample-actions">
+            <span class="coming-soon">Coming soon</span>
           </div>
         </article>
       </div>
