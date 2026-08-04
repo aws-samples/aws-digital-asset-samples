@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="WYAm-8ocfOrjM8J2iF7SCrLtiR-jwvEVzB4pKFAch3k" />
 
   <title>AWS Digital Asset Samples</title>
   <meta
@@ -305,7 +306,7 @@
         <p>
           Explore reference patterns and example implementations for financial
           messaging integration, settlement, tokenization, price feeds, proof of
-          reserves, and stablecoin payments.
+          reserves, and payments.
         </p>
 
         <div class="actions">
@@ -429,6 +430,44 @@
             </a>
           </div>
         </article>
+
+        <article class="sample">
+          <h3>Key management &amp; custody</h3>
+
+          <div class="sample-copy">
+            <div>
+              <strong>Use case</strong>
+              Secure private key custody and transaction signing for blockchain wallets
+            </div>
+            <div>
+              <strong>Pattern</strong>
+              <ol class="pattern-list">
+                <li><span>1</span>Generate or import private keys in a hardened environment (KMS or Nitro Enclaves).</li>
+                <li><span>2</span>Sign blockchain transactions without exposing key material.</li>
+                <li><span>3</span>Restrict signing authority through KMS key policies or enclave attestation.</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="sample-actions">
+            <a
+              class="sample-link"
+              href="https://github.com/aws-samples/aws-kms-ethereum-accounts"
+              target="_blank"
+              rel="noreferrer"
+            >
+              KMS repo
+            </a>
+            <a
+              class="sample-link"
+              href="https://github.com/aws-samples/aws-nitro-enclave-blockchain-wallet"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Enclaves repo
+            </a>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -463,6 +502,36 @@
             <a
               class="sample-link"
               href="https://github.com/aws-samples/sample-digital-asset-delivery-vs-payment"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open repo
+            </a>
+          </div>
+        </article>
+
+        <article class="sample">
+          <h3>Agentic serverless payments</h3>
+
+          <div class="sample-copy">
+            <div>
+              <strong>Use case</strong>
+              Conversational AI agents that purchase goods, settle USDC micropayments, and process refunds autonomously
+            </div>
+            <div>
+              <strong>Pattern</strong>
+              <ol class="pattern-list">
+                <li><span>1</span>Authenticate user and provision an embedded wallet with spending limits.</li>
+                <li><span>2</span>Agent browses products, intercepts HTTP 402 responses, and triggers payment via x402 protocol.</li>
+                <li><span>3</span>Sign and settle USDC on-chain through the x402 facilitator.</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="sample-actions">
+            <a
+              class="sample-link"
+              href="https://github.com/aws-samples/sample-agentic-serverless-payments"
               target="_blank"
               rel="noreferrer"
             >
