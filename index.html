@@ -276,17 +276,11 @@
     .sample {
       display: grid;
       gap: 22px;
-      padding: clamp(20px, 4vw, 30px);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.045),
-          transparent 45%
-        ),
-        var(--surface);
-      box-shadow: var(--shadow);
+      padding: 28px 0;
+    }
+
+    .sample + .sample {
+      border-top: 1px solid var(--border);
     }
 
     .sample-header {
@@ -409,8 +403,7 @@
     }
 
     .planned-samples .sample {
-      border-style: dashed;
-      background: rgba(17, 24, 39, 0.54);
+      background: transparent;
       box-shadow: none;
     }
 
@@ -427,7 +420,7 @@
       font-weight: 700;
     }
 
-    footer {
+    .site-footer {
       margin-top: 46px;
       padding: 36px 0;
       border-top: 1px solid var(--border);
@@ -479,7 +472,7 @@
 
       .sample {
         gap: 18px;
-        padding: 20px;
+        padding: 24px 0;
       }
     }
 
@@ -1056,7 +1049,7 @@
     </section>
   </main>
 
-  <footer>
+  <footer class="site-footer">
     <div class="container">
       Review each linked repository for source code, setup instructions,
       deployment steps, security considerations, and license details.
