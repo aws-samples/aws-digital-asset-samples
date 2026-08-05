@@ -422,6 +422,25 @@
       font-weight: 700;
     }
 
+    .node-runners {
+      margin-top: 56px;
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .node-runners-text {
+      margin: 0;
+      font-size: 1.05rem;
+      color: var(--muted);
+    }
+
+    .node-runners-text a {
+      color: var(--link);
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
     .site-footer {
       margin-top: 46px;
       padding: 36px 0;
@@ -623,7 +642,7 @@
           <article class="sample">
             <header class="sample-header">
               <h3 class="sample-title">
-                AWS CRE Price Feeds &amp; Proof of Reserves
+                AWS Chainlink Runtime Environment (CRE) Price Feeds &amp; Proof of Reserves
               </h3>
 
               <p class="use-case-label">Use case</p>
@@ -746,8 +765,8 @@
               <p class="use-case-label">Use case</p>
 
               <p class="use-case">
-                Secure private-key custody and transaction signing for
-                blockchain wallets.
+                Secure private key custody and transaction signing, from
+                single-key KMS accounts to MPC wallets in Nitro Enclaves.
               </p>
             </header>
 
@@ -759,7 +778,7 @@
                   <span class="step-number" aria-hidden="true">1</span>
                   <span>
                     Generate or import private keys in a hardened environment
-                    using AWS KMS or Nitro Enclaves.
+                    (KMS, Nitro Enclaves, or MPC co-signer).
                   </span>
                 </li>
 
@@ -799,6 +818,16 @@
                 aria-label="Open the AWS Nitro Enclaves blockchain wallet repository"
               >
                 Enclaves repository
+              </a>
+
+              <a
+                class="blog-link"
+                href="https://aws.amazon.com/blogs/web3/build-a-real-world-asset-tokenization-solution-on-aws-with-fireblocks/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Read the Fireblocks tokenization blog post"
+              >
+                Fireblocks blog
               </a>
             </footer>
           </article>
@@ -1047,6 +1076,19 @@
             </article>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="node-runners">
+      <div class="container">
+        <p class="node-runners-text">
+          Need blockchain node infrastructure?
+          <a
+            href="https://aws-samples.github.io/aws-blockchain-node-runners/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >AWS Node Runners</a>
+        </p>
       </div>
     </section>
   </main>
