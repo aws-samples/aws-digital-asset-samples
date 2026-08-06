@@ -3,10 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-    name="google-site-verification"
-    content="WYAm-8ocfOrjM8J2iF7SCrLtiR-jwvEVzB4pKFAch3k"
-  />
+  <meta name="google-site-verification" content="WYAm-8ocfOrjM8J2iF7SCrLtiR-jwvEVzB4pKFAch3k" />
 
   <title>AWS Digital Asset Samples</title>
   <meta
@@ -14,6 +11,7 @@
     content="Reference architectures for digital asset workflows on AWS, including financial messaging integration, settlement, tokenization, price feeds, proof-of-reserves, and digital asset payments."
   />
 
+  <!-- Open Sans: the Cloudscape Design System default typeface (used for the title) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -24,110 +22,50 @@
   <style>
     :root {
       --bg: #0f172a;
-      --surface: rgba(17, 24, 39, 0.88);
-      --surface-subtle: rgba(255, 255, 255, 0.035);
       --text: #f8fafc;
       --muted: #cbd5e1;
       --muted-2: #94a3b8;
-      --border: rgba(148, 163, 184, 0.28);
-      --border-strong: rgba(148, 163, 184, 0.42);
+      --border: rgba(148, 163, 184, 0.24);
       --accent: #ff9900;
-      --accent-hover: #ffad33;
       --link: #7dd3fc;
-      --link-hover: #bae6fd;
       --radius: 18px;
       --max-width: 1080px;
-      --content-width: 880px;
-      --shadow: 0 18px 50px rgba(0, 0, 0, 0.2);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.22);
     }
 
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      min-width: 320px;
-      font-family:
-        "Open Sans",
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        radial-gradient(
-          circle at top left,
-          rgba(255, 153, 0, 0.1),
-          transparent 30rem
-        ),
-        radial-gradient(
-          circle at top right,
-          rgba(125, 211, 252, 0.06),
-          transparent 28rem
-        ),
+        radial-gradient(circle at top left, rgba(255, 153, 0, 0.10), transparent 30rem),
+        radial-gradient(circle at top right, rgba(125, 211, 252, 0.06), transparent 28rem),
         var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    a:focus-visible {
-      outline: 3px solid var(--link);
-      outline-offset: 4px;
-      border-radius: 6px;
-    }
-
-    .skip-link {
-      position: fixed;
-      top: 12px;
-      left: 12px;
-      z-index: 100;
-      padding: 10px 14px;
-      border-radius: 8px;
-      background: var(--text);
-      color: var(--bg);
-      font-weight: 700;
-      transform: translateY(-160%);
-      transition: transform 0.15s ease;
-    }
-
-    .skip-link:focus {
-      transform: translateY(0);
-    }
+    a { color: inherit; text-decoration: none; }
 
     .container {
-      width: min(calc(100% - 32px), var(--max-width));
-      margin-inline: auto;
+      width: min(100% - 32px, var(--max-width));
+      margin: 0 auto;
     }
 
-    .site-header {
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.86);
+      backdrop-filter: blur(12px);
       position: sticky;
       top: 0;
-      z-index: 100;
-      isolation: isolate;
-      border-bottom: 1px solid var(--border);
-      background: rgba(15, 23, 42, 0.98);
-      -webkit-backdrop-filter: blur(12px);
-      backdrop-filter: blur(12px);
+      z-index: 10;
     }
 
     .nav {
       min-height: 72px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 24px;
     }
 
     .brand {
@@ -135,291 +73,199 @@
       letter-spacing: -0.02em;
     }
 
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 22px;
-      color: var(--muted);
-      font-size: 0.92rem;
-      font-weight: 700;
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
-    main {
-      display: block;
-    }
-
     .hero {
-      padding: 88px 0 52px;
-    }
-
-    .hero-content {
-      max-width: var(--content-width);
+      padding: 88px 0 34px;
     }
 
     h1 {
-      max-width: 18ch;
+      max-width: 920px;
       margin: 0;
-      font-size: clamp(2.4rem, 6vw, 4.25rem);
-      font-weight: 600;
-      line-height: 1.06;
-      letter-spacing: -0.04em;
-      text-wrap: balance;
+      font-family: "Open Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-weight: 400;
+      font-size: clamp(2.45rem, 7vw, 4.9rem);
+      line-height: 0.98;
+      letter-spacing: -0.07em;
     }
 
-    .hero-intro {
-      max-width: 720px;
+    .hero p {
+      max-width: 790px;
       margin: 24px 0 0;
       color: var(--muted);
       font-size: clamp(1.05rem, 2vw, 1.22rem);
     }
 
-    .hero-detail {
-      max-width: 720px;
-      margin: 12px 0 0;
-      color: var(--muted-2);
-      font-size: 0.98rem;
-    }
+    .actions { margin-top: 32px; display: flex; gap: 12px; }
 
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 32px;
-    }
-
-    .button,
-    .sample-link,
-    .blog-link {
+    .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       min-height: 44px;
-      padding: 0 18px;
-      border: 1px solid transparent;
+      padding: 0 17px;
       border-radius: 999px;
-      font-family: inherit;
-      font-weight: 800;
-      line-height: 1.2;
-      text-align: center;
-      transition:
-        transform 0.16s ease,
-        background-color 0.16s ease,
-        border-color 0.16s ease,
-        color 0.16s ease;
-    }
-
-    .button:hover,
-    .sample-link:hover,
-    .blog-link:hover {
-      transform: translateY(-1px);
-    }
-
-    .button-primary,
-    .sample-link {
       background: var(--accent);
       color: #111827;
+      font-weight: 850;
+      transition: transform 0.16s ease;
     }
 
-    .button-primary:hover,
-    .sample-link:hover {
-      background: var(--accent-hover);
-    }
-
-    .button-secondary,
-    .blog-link {
-      border-color: var(--border-strong);
-      background: var(--surface-subtle);
-      color: var(--link);
-    }
-
-    .button-secondary:hover,
-    .blog-link:hover {
-      border-color: var(--link);
-      color: var(--link-hover);
-    }
-
-    section[id] {
-      scroll-margin-top: 96px;
-    }
-
-    .content-section {
-      padding: 30px 0 24px;
-    }
-
-    .section-header {
-      max-width: 760px;
-      margin-bottom: 20px;
-    }
-
-    .section-title {
-      margin: 0;
-      font-size: clamp(1.6rem, 3vw, 2rem);
-      font-weight: 800;
-      line-height: 1.2;
-      letter-spacing: -0.035em;
-      text-wrap: balance;
-    }
-
-    .section-intro {
-      margin: 10px 0 0;
-      color: var(--muted);
-      font-size: 1rem;
-    }
+    .button:hover { transform: translateY(-1px); }
 
     .samples {
       display: grid;
-      gap: 16px;
+      gap: 14px;
+      padding: 16px 0 20px;
     }
 
-    .sample {
-      display: grid;
-      gap: 22px;
-      padding: 28px 0;
+    #sample-list,
+    #implementation-list {
+      scroll-margin-top: 90px;
     }
 
-    .sample + .sample {
-      border-top: 1px solid var(--border);
-    }
-
-    .sample-header {
-      display: grid;
-      gap: 10px;
-      max-width: 760px;
-    }
-
-    .sample-title {
-      margin: 0;
-      font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    .section-title {
+      margin: 44px 0 2px;
+      font-size: clamp(1.35rem, 3vw, 1.7rem);
       font-weight: 800;
-      line-height: 1.28;
-      letter-spacing: -0.025em;
-      text-wrap: balance;
+      letter-spacing: -0.035em;
     }
 
-    .use-case-label,
-    .pattern-title {
+    .section-intro {
       margin: 0;
-      color: var(--text);
-      font-size: 0.82rem;
-      font-weight: 800;
-      letter-spacing: 0.055em;
-      text-transform: uppercase;
-    }
-
-    .use-case {
-      max-width: 72ch;
-      margin: 0;
+      max-width: 720px;
       color: var(--muted);
       font-size: 1rem;
-    }
-
-    .sample-pattern {
-      display: grid;
-      gap: 10px;
-      max-width: 800px;
-    }
-
-    .pattern-list {
-      display: grid;
-      gap: 10px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .pattern-list li {
-      display: grid;
-      grid-template-columns: 30px minmax(0, 1fr);
-      gap: 10px;
-      align-items: start;
-      color: var(--muted);
-      font-size: 0.96rem;
-      line-height: 1.5;
-    }
-
-    .step-number {
-      width: 26px;
-      height: 26px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 1px;
-      border: 1px solid rgba(255, 153, 0, 0.32);
-      border-radius: 999px;
-      background: rgba(255, 153, 0, 0.12);
-      color: var(--accent);
-      font-size: 0.78rem;
-      font-weight: 800;
-      line-height: 1;
-    }
-
-    .sample-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding-top: 18px;
-      border-top: 1px solid var(--border);
-    }
-
-    .sample-link,
-    .blog-link {
-      min-width: 142px;
-      font-size: 0.92rem;
     }
 
     .builds-on-tag {
       display: inline-flex;
       align-items: center;
       width: fit-content;
-      padding: 5px 11px;
-      border: 1px solid rgba(125, 211, 252, 0.28);
+      padding: 4px 12px;
       border-radius: 999px;
-      background: rgba(125, 211, 252, 0.09);
+      background: rgba(125, 211, 252, 0.10);
+      border: 1px solid rgba(125, 211, 252, 0.24);
       color: var(--link);
-      font-size: 0.79rem;
+      font-size: 0.8rem;
       font-weight: 700;
-      line-height: 1.35;
+      letter-spacing: 0.005em;
     }
 
-    .subsection {
-      margin-top: 44px;
-      padding-top: 30px;
-      border-top: 1px solid var(--border);
-    }
-
-    .subsection-title {
-      margin: 0;
-      font-size: 1.3rem;
-      font-weight: 800;
-      letter-spacing: -0.025em;
-    }
-
-    .subsection-intro {
-      max-width: 680px;
-      margin: 8px 0 18px;
-      color: var(--muted);
-    }
-
-    .planned-samples .sample {
-      background: transparent;
-      box-shadow: none;
-    }
-
-    .status-label {
+    .coming-soon {
       display: inline-flex;
       align-items: center;
-      width: fit-content;
-      min-height: 34px;
-      padding: 5px 12px;
-      border: 1px dashed var(--border-strong);
+      justify-content: center;
+      min-height: 42px;
+      width: 132px;
       border-radius: 999px;
+      border: 1px dashed var(--border);
       color: var(--muted-2);
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       font-weight: 700;
+    }
+
+    .sample {
+      display: grid;
+      grid-template-columns: 0.85fr 1.45fr 132px;
+      gap: 22px;
+      align-items: center;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent),
+        rgba(17, 24, 39, 0.84);
+      box-shadow: var(--shadow);
+    }
+
+    .sample h3 {
+      margin: 0;
+      font-size: 1.22rem;
+      line-height: 1.25;
+      letter-spacing: -0.035em;
+    }
+
+    .sample-copy {
+      display: grid;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .sample-copy strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+
+    .pattern-list {
+      margin: 6px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 7px;
+    }
+
+    .pattern-list li {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 9px;
+      align-items: start;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.38;
+    }
+
+    .pattern-list span {
+      width: 24px;
+      height: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: rgba(255, 153, 0, 0.12);
+      border: 1px solid rgba(255, 153, 0, 0.24);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 850;
+      line-height: 1;
+    }
+
+    .sample-actions {
+      display: grid;
+      gap: 8px;
+      justify-items: stretch;
+      width: 132px;
+    }
+
+    .sample-link,
+    .blog-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      width: 132px;
+      padding: 0 14px;
+      border-radius: 999px;
+      font-weight: 850;
+      white-space: nowrap;
+      transition: transform 0.16s ease;
+    }
+
+    .sample-link {
+      background: var(--accent);
+      color: #111827;
+    }
+
+    .blog-link {
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--link);
+      font-size: 0.92rem;
+    }
+
+    .sample-link:hover,
+    .blog-link:hover {
+      transform: translateY(-1px);
     }
 
     .node-runners {
@@ -441,644 +287,335 @@
       text-underline-offset: 3px;
     }
 
-    .site-footer {
-      margin-top: 46px;
-      padding: 36px 0;
-      border-top: 1px solid var(--border);
+    footer {
+      padding: 42px 0;
       color: var(--muted-2);
-      font-size: 0.92rem;
+      border-top: 1px solid var(--border);
     }
 
-    @media (max-width: 760px) {
-      .nav {
-        min-height: auto;
-        padding: 17px 0;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .hero {
-        padding: 56px 0 34px;
-      }
-
-      .content-section {
-        padding-top: 24px;
-      }
-    }
-
-    @media (max-width: 560px) {
-      .container {
-        width: min(calc(100% - 24px), var(--max-width));
-      }
-
-      h1 {
-        font-size: clamp(2.25rem, 12vw, 3.2rem);
-      }
-
-      .actions {
-        flex-direction: column;
-      }
-
-      .button,
-      .sample-link,
-      .blog-link {
-        width: 100%;
+    @media (max-width: 980px) {
+      .sample {
+        grid-template-columns: 1fr;
       }
 
       .sample-actions {
-        flex-direction: column;
-      }
-
-      .sample {
-        gap: 18px;
-        padding: 24px 0;
+        width: 132px;
       }
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-      }
+    @media (max-width: 680px) {
+      .nav { padding: 18px 0; }
+      .hero { padding-top: 54px; }
     }
   </style>
 </head>
 
 <body>
-  <a class="skip-link" href="#main-content">Skip to main content</a>
-
-  <header class="site-header">
-    <nav class="container nav" aria-label="Primary navigation">
+  <header>
+    <div class="container nav">
       <a class="brand" href="#">AWS Digital Asset Samples</a>
-
-      <div class="nav-links">
-        <a href="#sample-list">Reference patterns</a>
-        <a href="#implementation-list">Implementations</a>
-      </div>
-    </nav>
+    </div>
   </header>
 
-  <main id="main-content">
-    <section class="hero" aria-labelledby="page-title">
+  <main>
+    <section class="hero">
       <div class="container">
-        <div class="hero-content">
-          <h1 id="page-title">
-            Digital asset reference architectures on AWS
-          </h1>
+        <h1>Reference architectures for digital asset workflows on AWS</h1>
 
-          <p class="hero-detail">
-            Explore financial messaging integration, settlement, tokenization,
-            price feeds, proof of reserves, key management, and digital asset
-            payments.
-          </p>
+        <p>
+          Explore reference patterns and example implementations for financial
+          messaging integration, settlement, tokenization, price feeds, proof of
+          reserves, and payments.
+        </p>
 
-          <div class="actions">
-            <a class="button button-primary" href="#sample-list">
-              Explore reference patterns
+        <div class="actions">
+          <a class="button" href="#sample-list">Reference patterns</a>
+          <a class="button" href="#implementation-list">Example implementations</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="sample-list">
+      <div class="container">
+        <h2 class="section-title">Reference patterns</h2>
+        <p class="section-intro">
+          Reusable architectures that show how to structure a digital asset
+          workflow on AWS. Start here to understand the building blocks.
+        </p>
+      </div>
+      <div class="container samples">
+        <article class="sample">
+          <h3>Bridging financial messaging systems to digital asset settlement</h3>
+
+          <div class="sample-copy">
+            <div>
+              <strong>Use case</strong>
+              Connect off-chain financial instructions to blockchain-based settlement
+            </div>
+            <div>
+              <strong>Pattern</strong>
+              <ol class="pattern-list">
+                <li><span>1</span>Receive a financial message or settlement instruction.</li>
+                <li><span>2</span>Normalize, sign, store, and orchestrate the instruction.</li>
+                <li><span>3</span>Execute validated on-chain token movement or settlement action.</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="sample-actions">
+            <a
+              class="sample-link"
+              href="https://github.com/aws-samples/sample-offchain-to-onchain-settlement"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open repo
             </a>
-
-            <a class="button button-secondary" href="#implementation-list">
-              View implementations
+            <a
+              class="blog-link"
+              href="https://aws.amazon.com/blogs/web3/bridging-financial-messaging-systems-to-digital-asset-settlement/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Read blog
             </a>
           </div>
-        </div>
-      </div>
-    </section>
+        </article>
 
-    <section
-      id="sample-list"
-      class="content-section"
-      aria-labelledby="patterns-heading"
-    >
-      <div class="container">
-        <div class="section-header">
-          <h2 id="patterns-heading" class="section-title">
-            Reference patterns
-          </h2>
+        <article class="sample">
+          <h3>AWS Chainlink Runtime Environment (CRE) Price Feeds &amp; Proof of Reserves</h3>
 
-          <p class="section-intro">
-            Reusable architectures that explain the core building blocks of a
-            digital asset workflow on AWS. Start here when designing a new
-            solution.
-          </p>
-        </div>
-
-        <div class="samples">
-          <article class="sample">
-            <header class="sample-header">
-              <h3 class="sample-title">
-                Bridging financial messaging systems to digital asset settlement
-              </h3>
-
-              <p class="use-case-label">Use case</p>
-
-              <p class="use-case">
-                Connect off-chain financial instructions to blockchain-based
-                settlement.
-              </p>
-            </header>
-
-            <div class="sample-pattern">
-              <p class="pattern-title">How it works</p>
-
+          <div class="sample-copy">
+            <div>
+              <strong>Use case</strong>
+              Deliver price, reserve, or collateral data to smart contracts
+            </div>
+            <div>
+              <strong>Pattern</strong>
               <ol class="pattern-list">
-                <li>
-                  <span class="step-number" aria-hidden="true">1</span>
-                  <span>
-                    Receive a financial message or settlement instruction.
-                  </span>
-                </li>
-
-                <li>
-                  <span class="step-number" aria-hidden="true">2</span>
-                  <span>
-                    Normalize, sign, store, and orchestrate the instruction.
-                  </span>
-                </li>
-
-                <li>
-                  <span class="step-number" aria-hidden="true">3</span>
-                  <span>
-                    Execute validated on-chain token movement or another
-                    settlement action.
-                  </span>
-                </li>
+                <li><span>1</span>Expose price, reserve, or collateral data through AWS services.</li>
+                <li><span>2</span>Use Chainlink CRE to fetch data and coordinate execution.</li>
+                <li><span>3</span>Update smart contracts with feed, reserve, or collateral state.</li>
               </ol>
             </div>
-
-            <footer class="sample-actions">
-              <a
-                class="sample-link"
-                href="https://github.com/aws-samples/sample-offchain-to-onchain-settlement"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Open the financial messaging to digital asset settlement repository"
-              >
-                Open repository
-              </a>
-
-              <a
-                class="blog-link"
-                href="https://aws.amazon.com/blogs/web3/bridging-financial-messaging-systems-to-digital-asset-settlement/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Read the financial messaging to digital asset settlement blog post"
-              >
-                Read blog
-              </a>
-            </footer>
-          </article>
-
-          <article class="sample">
-            <header class="sample-header">
-              <h3 class="sample-title">
-                AWS Chainlink Runtime Environment (CRE) Price Feeds &amp; Proof of Reserves
-              </h3>
-
-              <p class="use-case-label">Use case</p>
-
-              <p class="use-case">
-                Deliver price, reserve, or collateral data to smart contracts.
-              </p>
-            </header>
-
-            <div class="sample-pattern">
-              <p class="pattern-title">How it works</p>
-
-              <ol class="pattern-list">
-                <li>
-                  <span class="step-number" aria-hidden="true">1</span>
-                  <span>
-                    Expose price, reserve, or collateral data through AWS
-                    services.
-                  </span>
-                </li>
-
-                <li>
-                  <span class="step-number" aria-hidden="true">2</span>
-                  <span>
-                    Use Chainlink CRE to fetch the data and coordinate execution.
-                  </span>
-                </li>
-
-                <li>
-                  <span class="step-number" aria-hidden="true">3</span>
-                  <span>
-                    Update smart contracts with feed, reserve, or collateral
-                    state.
-                  </span>
-                </li>
-              </ol>
-            </div>
-
-            <footer class="sample-actions">
-              <a
-                class="sample-link"
-                href="https://github.com/aws-samples/sample-cre-price-feed-proof-of-reserves"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Open the AWS CRE price feeds and proof of reserves repository"
-              >
-                Open repository
-              </a>
-            </footer>
-          </article>
-
-          <article class="sample">
-            <header class="sample-header">
-              <h3 class="sample-title">
-                Serverless Digital Asset Payments
-              </h3>
-
-              <p class="use-case-label">Use case</p>
-
-              <p class="use-case">
-                Generate invoices, detect blockchain payments, and sweep
-                confirmed funds to treasury.
-              </p>
-            </header>
-
-            <div class="sample-pattern">
-              <p class="pattern-title">How it works</p>
-
-              <ol class="pattern-list">
-                <li>
-                  <span class="step-number" aria-hidden="true">1</span>
-                  <span>
-                    Create an invoice, payment request, or checkout event.
-                  </span>
-                </li>
-
-                <li>
-                  <span class="step-number" aria-hidden="true">2</span>
-                  <span>
-                    Monitor blockchain activity and update the payment status.
-                  </span>
-                </li>
-
-                <li>
-                  <span class="step-number" aria-hidden="true">3</span>
-                  <span>
-                    Confirm the payment and sweep the funds to treasury.
-                  </span>
-                </li>
-              </ol>
-            </div>
-
-            <footer class="sample-actions">
-              <a
-                class="sample-link"
-                href="https://github.com/aws-samples/sample-serverless-digital-asset-payments"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Open the serverless digital asset payments repository"
-              >
-                Open repository
-              </a>
-
-              <a
-                class="blog-link"
-                href="https://aws.amazon.com/blogs/web3/processing-digital-asset-payments-on-aws/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Read the serverless digital asset payments blog post"
-              >
-                Read blog
-              </a>
-            </footer>
-          </article>
-
-          <article class="sample">
-            <header class="sample-header">
-              <h3 class="sample-title">Key management &amp; custody</h3>
-
-              <p class="use-case-label">Use case</p>
-
-              <p class="use-case">
-                Secure private key custody and transaction signing, from
-                single-key KMS accounts to MPC wallets in Nitro Enclaves.
-              </p>
-            </header>
-
-            <div class="sample-pattern">
-              <p class="pattern-title">How it works</p>
-
-              <ol class="pattern-list">
-                <li>
-                  <span class="step-number" aria-hidden="true">1</span>
-                  <span>
-                    Generate or import private keys in a hardened environment
-                    (KMS, Nitro Enclaves, or MPC co-signer).
-                  </span>
-                </li>
-
-                <li>
-                  <span class="step-number" aria-hidden="true">2</span>
-                  <span>
-                    Sign blockchain transactions without exposing key material.
-                  </span>
-                </li>
-
-                <li>
-                  <span class="step-number" aria-hidden="true">3</span>
-                  <span>
-                    Restrict signing authority through KMS key policies or
-                    enclave attestation.
-                  </span>
-                </li>
-              </ol>
-            </div>
-
-            <footer class="sample-actions">
-              <a
-                class="sample-link"
-                href="https://github.com/aws-samples/aws-kms-ethereum-accounts"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Open the AWS KMS Ethereum accounts repository"
-              >
-                KMS repository
-              </a>
-
-              <a
-                class="blog-link"
-                href="https://github.com/aws-samples/aws-nitro-enclave-blockchain-wallet"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Open the AWS Nitro Enclaves blockchain wallet repository"
-              >
-                Enclaves repository
-              </a>
-
-              <a
-                class="blog-link"
-                href="https://aws.amazon.com/blogs/web3/build-a-real-world-asset-tokenization-solution-on-aws-with-fireblocks/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Read the Fireblocks tokenization blog post"
-              >
-                Fireblocks blog
-              </a>
-            </footer>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section
-      id="implementation-list"
-      class="content-section"
-      aria-labelledby="implementations-heading"
-    >
-      <div class="container">
-        <div class="section-header">
-          <h2 id="implementations-heading" class="section-title">
-            Example implementations
-          </h2>
-
-          <p class="section-intro">
-            Concrete solutions that apply the reference patterns to specific
-            digital asset use cases.
-          </p>
-        </div>
-
-        <div class="samples">
-          <article class="sample">
-            <header class="sample-header">
-              <h3 class="sample-title">
-                Delivery versus Payment (DvP)
-              </h3>
-
-              <p class="use-case-label">Use case</p>
-
-              <p class="use-case">
-                Settle tokenized securities atomically, so the asset and payment
-                transfer together or not at all.
-              </p>
-            </header>
-
-            <div class="sample-pattern">
-              <p class="pattern-title">How it works</p>
-
-              <ol class="pattern-list">
-                <li>
-                  <span class="step-number" aria-hidden="true">1</span>
-                  <span>
-                    Escrow both legs of a trade—tokens and stablecoin—using a
-                    smart contract.
-                  </span>
-                </li>
-
-                <li>
-                  <span class="step-number" aria-hidden="true">2</span>
-                  <span>
-                    Validate the KYC allowlist, manage timeouts, and log audit
-                    events.
-                  </span>
-                </li>
-
-                <li>
-                  <span class="step-number" aria-hidden="true">3</span>
-                  <span>
-                    Execute an atomic swap or refund in a single transaction.
-                  </span>
-                </li>
-              </ol>
-            </div>
-
-            <footer class="sample-actions">
-              <a
-                class="sample-link"
-                href="https://github.com/aws-samples/sample-digital-asset-delivery-vs-payment"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Open the Delivery versus Payment repository"
-              >
-                Open repository
-              </a>
-            </footer>
-          </article>
-
-          <article class="sample">
-            <header class="sample-header">
-              <h3 class="sample-title">
-                Agentic serverless payments
-              </h3>
-
-              <p class="use-case-label">Use case</p>
-
-              <p class="use-case">
-                Enable conversational AI agents to purchase goods, settle USDC
-                micropayments, and process refunds autonomously.
-              </p>
-            </header>
-
-            <div class="sample-pattern">
-              <p class="pattern-title">How it works</p>
-
-              <ol class="pattern-list">
-                <li>
-                  <span class="step-number" aria-hidden="true">1</span>
-                  <span>
-                    Authenticate the user and provision an embedded wallet with
-                    spending limits.
-                  </span>
-                </li>
-
-                <li>
-                  <span class="step-number" aria-hidden="true">2</span>
-                  <span>
-                    Let the agent browse products, handle HTTP 402 responses,
-                    and initiate payment through the x402 protocol.
-                  </span>
-                </li>
-
-                <li>
-                  <span class="step-number" aria-hidden="true">3</span>
-                  <span>
-                    Sign and settle USDC on-chain through the x402 facilitator.
-                  </span>
-                </li>
-              </ol>
-            </div>
-
-            <footer class="sample-actions">
-              <a
-                class="sample-link"
-                href="https://github.com/aws-samples/sample-agentic-serverless-payments"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Open the agentic serverless payments repository"
-              >
-                Open repository
-              </a>
-            </footer>
-          </article>
-        </div>
-
-        <div class="subsection" aria-labelledby="planned-heading">
-          <h3 id="planned-heading" class="subsection-title">
-            Planned implementations
-          </h3>
-
-          <p class="subsection-intro">
-            These examples are under development. Their reference patterns are
-            available above.
-          </p>
-
-          <div class="samples planned-samples">
-            <article class="sample">
-              <header class="sample-header">
-                <span class="status-label">Coming soon</span>
-
-                <span class="builds-on-tag">
-                  Builds on: Bridging financial messaging systems
-                </span>
-
-                <h4 class="sample-title">Tokenized deposits</h4>
-
-                <p class="use-case-label">Use case</p>
-
-                <p class="use-case">
-                  Issue and redeem tokenized commercial-bank deposits from
-                  off-chain instructions.
-                </p>
-              </header>
-
-              <div class="sample-pattern">
-                <p class="pattern-title">How it works</p>
-
-                <ol class="pattern-list">
-                  <li>
-                    <span class="step-number" aria-hidden="true">1</span>
-                    <span>
-                      Receive a deposit or redemption instruction from a bank
-                      system.
-                    </span>
-                  </li>
-
-                  <li>
-                    <span class="step-number" aria-hidden="true">2</span>
-                    <span>
-                      Normalize, sign, store, and orchestrate the instruction.
-                    </span>
-                  </li>
-
-                  <li>
-                    <span class="step-number" aria-hidden="true">3</span>
-                    <span>
-                      Mint or burn deposit tokens on a private Hyperledger Besu
-                      network to match the ledger.
-                    </span>
-                  </li>
-                </ol>
-              </div>
-            </article>
-
-            <article class="sample">
-              <header class="sample-header">
-                <span class="status-label">Coming soon</span>
-
-                <span class="builds-on-tag">
-                  Builds on: CRE Price Feeds &amp; Proof of Reserves
-                </span>
-
-                <h4 class="sample-title">
-                  Derived equities backed by verifiable reserves
-                </h4>
-
-                <p class="use-case-label">Use case</p>
-
-                <p class="use-case">
-                  Issue a tokenized equity backed by verifiable price and
-                  reserve data.
-                </p>
-              </header>
-
-              <div class="sample-pattern">
-                <p class="pattern-title">How it works</p>
-
-                <ol class="pattern-list">
-                  <li>
-                    <span class="step-number" aria-hidden="true">1</span>
-                    <span>
-                      Expose equity-price and reserve data through AWS services.
-                    </span>
-                  </li>
-
-                  <li>
-                    <span class="step-number" aria-hidden="true">2</span>
-                    <span>
-                      Use Chainlink CRE to deliver feeds and verify collateral
-                      on-chain.
-                    </span>
-                  </li>
-
-                  <li>
-                    <span class="step-number" aria-hidden="true">3</span>
-                    <span>
-                      Mint, redeem, and rebalance synthetic stock tokens against
-                      the verified reserves.
-                    </span>
-                  </li>
-                </ol>
-              </div>
-            </article>
           </div>
-        </div>
+
+          <div class="sample-actions">
+            <a
+              class="sample-link"
+              href="https://github.com/aws-samples/sample-cre-price-feed-proof-of-reserves"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open repo
+            </a>
+          </div>
+        </article>
+
+        <article class="sample">
+          <h3>Serverless Digital Asset Payments</h3>
+
+          <div class="sample-copy">
+            <div>
+              <strong>Use case</strong>
+              Generate invoices, detect blockchain payments, and sweep funds to treasury
+            </div>
+            <div>
+              <strong>Pattern</strong>
+              <ol class="pattern-list">
+                <li><span>1</span>Create an invoice, payment request, or checkout event.</li>
+                <li><span>2</span>Monitor blockchain activity and update payment status.</li>
+                <li><span>3</span>Confirm payment and sweep funds to treasury.</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="sample-actions">
+            <a
+              class="sample-link"
+              href="https://github.com/aws-samples/sample-serverless-digital-asset-payments"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open repo
+            </a>
+            <a
+              class="blog-link"
+              href="https://aws.amazon.com/blogs/web3/processing-digital-asset-payments-on-aws/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Read blog
+            </a>
+          </div>
+        </article>
+
+        <article class="sample">
+          <h3>Key management &amp; custody</h3>
+
+          <div class="sample-copy">
+            <div>
+              <strong>Use case</strong>
+              Secure private key custody and transaction signing, from single-key KMS accounts to MPC wallets in Nitro Enclaves
+            </div>
+            <div>
+              <strong>Pattern</strong>
+              <ol class="pattern-list">
+                <li><span>1</span>Generate or import private keys in a hardened environment (KMS, Nitro Enclaves, or MPC co-signer).</li>
+                <li><span>2</span>Sign blockchain transactions without exposing key material.</li>
+                <li><span>3</span>Restrict signing authority through KMS key policies or enclave attestation.</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="sample-actions">
+            <a
+              class="sample-link"
+              href="https://github.com/aws-samples/aws-kms-ethereum-accounts"
+              target="_blank"
+              rel="noreferrer"
+            >
+              KMS repo
+            </a>
+            <a
+              class="sample-link"
+              href="https://github.com/aws-samples/aws-nitro-enclave-blockchain-wallet"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Enclaves repo
+            </a>
+            <a
+              class="blog-link"
+              href="https://aws.amazon.com/blogs/web3/build-a-real-world-asset-tokenization-solution-on-aws-with-fireblocks/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Fireblocks blog
+            </a>
+          </div>
+        </article>
       </div>
     </section>
 
+    <section id="implementation-list">
+      <div class="container">
+        <h2 class="section-title">Example implementations</h2>
+        <p class="section-intro">
+          Concrete solutions that build on the reference patterns above to address a
+          specific digital asset use case.
+        </p>
+      </div>
+      <div class="container samples">
+        <article class="sample">
+          <h3>Delivery versus Payment (DvP)</h3>
+
+          <div class="sample-copy">
+            <div>
+              <strong>Use case</strong>
+              Settle tokenized securities atomically. Asset and payment transfer together or not at all
+            </div>
+            <div>
+              <strong>Pattern</strong>
+              <ol class="pattern-list">
+                <li><span>1</span>Escrow both legs of a trade (tokens and stablecoin) via smart contract.</li>
+                <li><span>2</span>Validate KYC allowlist, manage timeouts, and log audit events.</li>
+                <li><span>3</span>Execute atomic settlement. Swap or refund in a single transaction.</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="sample-actions">
+            <a
+              class="sample-link"
+              href="https://github.com/aws-samples/sample-digital-asset-delivery-vs-payment"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open repo
+            </a>
+          </div>
+        </article>
+
+        <article class="sample">
+          <h3>Agentic serverless payments</h3>
+
+          <div class="sample-copy">
+            <div>
+              <strong>Use case</strong>
+              Conversational AI agents that purchase goods, settle USDC micropayments, and process refunds autonomously
+            </div>
+            <div>
+              <strong>Pattern</strong>
+              <ol class="pattern-list">
+                <li><span>1</span>Authenticate user and provision an embedded wallet with spending limits.</li>
+                <li><span>2</span>Agent browses products, intercepts HTTP 402 responses, and triggers payment via x402 protocol.</li>
+                <li><span>3</span>Sign and settle USDC on-chain through the x402 facilitator.</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="sample-actions">
+            <a
+              class="sample-link"
+              href="https://github.com/aws-samples/sample-agentic-serverless-payments"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open repo
+            </a>
+          </div>
+        </article>
+
+        <article class="sample">
+          <h3>Tokenized deposits</h3>
+
+          <div class="sample-copy">
+            <span class="builds-on-tag">Builds on: Bridging financial messaging systems</span>
+            <div>
+              <strong>Use case</strong>
+              Issue and redeem tokenized commercial bank deposits from off-chain instructions
+            </div>
+            <div>
+              <strong>Pattern</strong>
+              <ol class="pattern-list">
+                <li><span>1</span>Receive a deposit or redemption instruction from a bank system.</li>
+                <li><span>2</span>Normalize, sign, store, and orchestrate the instruction.</li>
+                <li><span>3</span>Mint or burn deposit tokens on a private Hyperledger Besu network to match the ledger.</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="sample-actions">
+            <span class="coming-soon">Coming soon</span>
+          </div>
+        </article>
+
+        <article class="sample">
+          <h3>Derived equities backed by verifiable reserves</h3>
+
+          <div class="sample-copy">
+            <span class="builds-on-tag">Builds on: CRE Price Feeds &amp; Proof of Reserves</span>
+            <div>
+              <strong>Use case</strong>
+              Issue a tokenized equity backed by verifiable price and reserve data
+            </div>
+            <div>
+              <strong>Pattern</strong>
+              <ol class="pattern-list">
+                <li><span>1</span>Expose equity price and reserve data through AWS services.</li>
+                <li><span>2</span>Use Chainlink CRE to deliver feeds and verify collateral on-chain.</li>
+                <li><span>3</span>Mint, redeem, and rebalance synthetic stock tokens against reserves.</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="sample-actions">
+            <span class="coming-soon">Coming soon</span>
+          </div>
+        </article>
+      </div>
+    </section>
     <section class="node-runners">
       <div class="container">
         <p class="node-runners-text">
@@ -1086,17 +623,16 @@
           <a
             href="https://aws-samples.github.io/aws-blockchain-node-runners/"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noreferrer"
           >AWS Node Runners</a>
         </p>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer>
     <div class="container">
-      Review each linked repository for source code, setup instructions,
-      deployment steps, security considerations, and license details.
+      Review each linked repository for source code, setup instructions, deployment steps, and license details.
     </div>
   </footer>
 </body>
