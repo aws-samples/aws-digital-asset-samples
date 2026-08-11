@@ -278,11 +278,10 @@
     .sample {
       display: grid;
       gap: 22px;
-      padding: 28px 0;
-    }
-
-    .sample + .sample {
-      border-top: 1px solid var(--border);
+      padding: 26px 26px 28px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface-subtle);
     }
 
     .sample-header {
@@ -407,8 +406,7 @@
     }
 
     .planned-samples .sample {
-      background: transparent;
-      box-shadow: none;
+      border-style: dashed;
     }
 
     .status-label {
@@ -494,7 +492,7 @@
 
       .sample {
         gap: 18px;
-        padding: 24px 0;
+        padding: 22px 18px 24px;
       }
     }
 
