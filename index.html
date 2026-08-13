@@ -372,56 +372,6 @@
       font-size: 0.92rem;
     }
 
-    .builds-on-tag {
-      display: inline-flex;
-      align-items: center;
-      width: fit-content;
-      padding: 5px 11px;
-      border: 1px solid rgba(125, 211, 252, 0.28);
-      border-radius: 999px;
-      background: rgba(125, 211, 252, 0.09);
-      color: var(--link);
-      font-size: 0.79rem;
-      font-weight: 700;
-      line-height: 1.35;
-    }
-
-    .subsection {
-      margin-top: 44px;
-      padding-top: 30px;
-      border-top: 1px solid var(--border);
-    }
-
-    .subsection-title {
-      margin: 0;
-      font-size: 1.3rem;
-      font-weight: 800;
-      letter-spacing: -0.025em;
-    }
-
-    .subsection-intro {
-      max-width: 680px;
-      margin: 8px 0 18px;
-      color: var(--muted);
-    }
-
-    .planned-samples .sample {
-      border-style: dashed;
-    }
-
-    .status-label {
-      display: inline-flex;
-      align-items: center;
-      width: fit-content;
-      min-height: 34px;
-      padding: 5px 12px;
-      border: 1px dashed var(--border-strong);
-      border-radius: 999px;
-      color: var(--muted-2);
-      font-size: 0.82rem;
-      font-weight: 700;
-    }
-
     .node-runners {
       margin-top: 56px;
       padding: 40px 0;
@@ -573,6 +523,80 @@
         </div>
 
         <div class="samples">
+          <article class="sample">
+            <header class="sample-header">
+              <h3 class="sample-title">Key management &amp; custody</h3>
+
+              <p class="use-case-label">Use case</p>
+
+              <p class="use-case">
+                Secure private key custody and transaction signing, from
+                single-key KMS accounts to MPC wallets in Nitro Enclaves.
+              </p>
+            </header>
+
+            <div class="sample-pattern">
+              <p class="pattern-title">How it works</p>
+
+              <ol class="pattern-list">
+                <li>
+                  <span class="step-number" aria-hidden="true">1</span>
+                  <span>
+                    Generate or import private keys in a hardened environment
+                    (KMS, Nitro Enclaves, or MPC co-signer).
+                  </span>
+                </li>
+
+                <li>
+                  <span class="step-number" aria-hidden="true">2</span>
+                  <span>
+                    Sign blockchain transactions without exposing key material.
+                  </span>
+                </li>
+
+                <li>
+                  <span class="step-number" aria-hidden="true">3</span>
+                  <span>
+                    Restrict signing authority through KMS key policies or
+                    enclave attestation.
+                  </span>
+                </li>
+              </ol>
+            </div>
+
+            <footer class="sample-actions">
+              <a
+                class="sample-link"
+                href="https://github.com/aws-samples/aws-kms-ethereum-accounts"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open the AWS KMS Ethereum accounts repository"
+              >
+                KMS repository
+              </a>
+
+              <a
+                class="blog-link"
+                href="https://github.com/aws-samples/aws-nitro-enclave-blockchain-wallet"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open the AWS Nitro Enclaves blockchain wallet repository"
+              >
+                Enclaves repository
+              </a>
+
+              <a
+                class="blog-link"
+                href="https://aws.amazon.com/blogs/web3/build-a-real-world-asset-tokenization-solution-on-aws-with-fireblocks/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Read the Fireblocks tokenization blog post"
+              >
+                Fireblocks blog
+              </a>
+            </footer>
+          </article>
+
           <article class="sample">
             <header class="sample-header">
               <h3 class="sample-title">
@@ -756,80 +780,6 @@
               </a>
             </footer>
           </article>
-
-          <article class="sample">
-            <header class="sample-header">
-              <h3 class="sample-title">Key management &amp; custody</h3>
-
-              <p class="use-case-label">Use case</p>
-
-              <p class="use-case">
-                Secure private key custody and transaction signing, from
-                single-key KMS accounts to MPC wallets in Nitro Enclaves.
-              </p>
-            </header>
-
-            <div class="sample-pattern">
-              <p class="pattern-title">How it works</p>
-
-              <ol class="pattern-list">
-                <li>
-                  <span class="step-number" aria-hidden="true">1</span>
-                  <span>
-                    Generate or import private keys in a hardened environment
-                    (KMS, Nitro Enclaves, or MPC co-signer).
-                  </span>
-                </li>
-
-                <li>
-                  <span class="step-number" aria-hidden="true">2</span>
-                  <span>
-                    Sign blockchain transactions without exposing key material.
-                  </span>
-                </li>
-
-                <li>
-                  <span class="step-number" aria-hidden="true">3</span>
-                  <span>
-                    Restrict signing authority through KMS key policies or
-                    enclave attestation.
-                  </span>
-                </li>
-              </ol>
-            </div>
-
-            <footer class="sample-actions">
-              <a
-                class="sample-link"
-                href="https://github.com/aws-samples/aws-kms-ethereum-accounts"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Open the AWS KMS Ethereum accounts repository"
-              >
-                KMS repository
-              </a>
-
-              <a
-                class="blog-link"
-                href="https://github.com/aws-samples/aws-nitro-enclave-blockchain-wallet"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Open the AWS Nitro Enclaves blockchain wallet repository"
-              >
-                Enclaves repository
-              </a>
-
-              <a
-                class="blog-link"
-                href="https://aws.amazon.com/blogs/web3/build-a-real-world-asset-tokenization-solution-on-aws-with-fireblocks/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Read the Fireblocks tokenization blog post"
-              >
-                Fireblocks blog
-              </a>
-            </footer>
-          </article>
         </div>
       </div>
     </section>
@@ -852,6 +802,114 @@
         </div>
 
         <div class="samples">
+          <article class="sample">
+            <header class="sample-header">
+              <h3 class="sample-title">Tokenized deposits</h3>
+
+              <p class="use-case-label">Use case</p>
+
+              <p class="use-case">
+                Issue and redeem tokenized commercial-bank deposits from
+                off-chain instructions.
+              </p>
+            </header>
+
+            <div class="sample-pattern">
+              <p class="pattern-title">How it works</p>
+
+              <ol class="pattern-list">
+                <li>
+                  <span class="step-number" aria-hidden="true">1</span>
+                  <span>
+                    Receive a deposit or redemption instruction from a bank
+                    system.
+                  </span>
+                </li>
+
+                <li>
+                  <span class="step-number" aria-hidden="true">2</span>
+                  <span>
+                    Normalize, sign, store, and orchestrate the instruction.
+                  </span>
+                </li>
+
+                <li>
+                  <span class="step-number" aria-hidden="true">3</span>
+                  <span>
+                    Mint or burn deposit tokens on a private Hyperledger Besu
+                    network to match the ledger.
+                  </span>
+                </li>
+              </ol>
+            </div>
+
+            <footer class="sample-actions">
+              <a
+                class="sample-link"
+                href="https://github.com/aws-samples/sample-tokenized-deposits-settlement"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open the tokenized deposits settlement repository"
+              >
+                Open repository
+              </a>
+            </footer>
+          </article>
+
+          <article class="sample">
+            <header class="sample-header">
+              <h3 class="sample-title">Tokenized Fund (ETF)</h3>
+
+              <p class="use-case-label">Use case</p>
+
+              <p class="use-case">
+                Issue a tokenized fund backed by verifiable price and reserve
+                data.
+              </p>
+            </header>
+
+            <div class="sample-pattern">
+              <p class="pattern-title">How it works</p>
+
+              <ol class="pattern-list">
+                <li>
+                  <span class="step-number" aria-hidden="true">1</span>
+                  <span>
+                    Expose fund-price and reserve data through AWS services.
+                  </span>
+                </li>
+
+                <li>
+                  <span class="step-number" aria-hidden="true">2</span>
+                  <span>
+                    Use Chainlink CRE to deliver feeds and verify collateral
+                    on-chain.
+                  </span>
+                </li>
+
+                <li>
+                  <span class="step-number" aria-hidden="true">3</span>
+                  <span>
+                    Mint, redeem, and rebalance fund tokens against the verified
+                    reserves.
+                  </span>
+                </li>
+              </ol>
+            </div>
+
+            <footer class="sample-actions">
+              <a
+                class="sample-link"
+                href="https://github.com/aws-samples/sample-tokenized-fund"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open the tokenized fund repository"
+              >
+                Open repository
+              </a>
+            </footer>
+          </article>
+
           <article class="sample">
             <header class="sample-header">
               <h3 class="sample-title">
@@ -911,7 +969,7 @@
           <article class="sample">
             <header class="sample-header">
               <h3 class="sample-title">
-                Agentic serverless payments
+                Agentic payments
               </h3>
 
               <p class="use-case-label">Use case</p>
@@ -963,117 +1021,6 @@
               </a>
             </footer>
           </article>
-        </div>
-
-        <div class="subsection" aria-labelledby="planned-heading">
-          <h3 id="planned-heading" class="subsection-title">
-            Planned implementations
-          </h3>
-
-          <p class="subsection-intro">
-            These examples are under development. Their reference patterns are
-            available above.
-          </p>
-
-          <div class="samples planned-samples">
-            <article class="sample">
-              <header class="sample-header">
-                <span class="status-label">Coming soon</span>
-
-                <span class="builds-on-tag">
-                  Builds on: Bridging financial messaging systems
-                </span>
-
-                <h4 class="sample-title">Tokenized deposits</h4>
-
-                <p class="use-case-label">Use case</p>
-
-                <p class="use-case">
-                  Issue and redeem tokenized commercial-bank deposits from
-                  off-chain instructions.
-                </p>
-              </header>
-
-              <div class="sample-pattern">
-                <p class="pattern-title">How it works</p>
-
-                <ol class="pattern-list">
-                  <li>
-                    <span class="step-number" aria-hidden="true">1</span>
-                    <span>
-                      Receive a deposit or redemption instruction from a bank
-                      system.
-                    </span>
-                  </li>
-
-                  <li>
-                    <span class="step-number" aria-hidden="true">2</span>
-                    <span>
-                      Normalize, sign, store, and orchestrate the instruction.
-                    </span>
-                  </li>
-
-                  <li>
-                    <span class="step-number" aria-hidden="true">3</span>
-                    <span>
-                      Mint or burn deposit tokens on a private Hyperledger Besu
-                      network to match the ledger.
-                    </span>
-                  </li>
-                </ol>
-              </div>
-            </article>
-
-            <article class="sample">
-              <header class="sample-header">
-                <span class="status-label">Coming soon</span>
-
-                <span class="builds-on-tag">
-                  Builds on: CRE Price Feeds &amp; Proof of Reserves
-                </span>
-
-                <h4 class="sample-title">
-                  Derived equities backed by verifiable reserves
-                </h4>
-
-                <p class="use-case-label">Use case</p>
-
-                <p class="use-case">
-                  Issue a tokenized equity backed by verifiable price and
-                  reserve data.
-                </p>
-              </header>
-
-              <div class="sample-pattern">
-                <p class="pattern-title">How it works</p>
-
-                <ol class="pattern-list">
-                  <li>
-                    <span class="step-number" aria-hidden="true">1</span>
-                    <span>
-                      Expose equity-price and reserve data through AWS services.
-                    </span>
-                  </li>
-
-                  <li>
-                    <span class="step-number" aria-hidden="true">2</span>
-                    <span>
-                      Use Chainlink CRE to deliver feeds and verify collateral
-                      on-chain.
-                    </span>
-                  </li>
-
-                  <li>
-                    <span class="step-number" aria-hidden="true">3</span>
-                    <span>
-                      Mint, redeem, and rebalance synthetic stock tokens against
-                      the verified reserves.
-                    </span>
-                  </li>
-                </ol>
-              </div>
-            </article>
-          </div>
         </div>
       </div>
     </section>
