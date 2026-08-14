@@ -880,13 +880,15 @@
                 Builds on: CRE Price Feeds &amp; Proof of Reserves
               </span>
 
-              <h3 class="sample-title">Tokenized Fund (ETF)</h3>
+              <h3 class="sample-title">
+                Synthetic tokenized equity
+              </h3>
 
               <p class="use-case-label">Use case</p>
 
               <p class="use-case">
-                Issue a tokenized fund backed by verifiable price and reserve
-                data.
+                Mint a token that tracks an S&amp;P 500 ETF price as
+                USDC-collateralized debt, without holding the underlying shares.
               </p>
             </header>
 
@@ -897,23 +899,25 @@
                 <li>
                   <span class="step-number" aria-hidden="true">1</span>
                   <span>
-                    Expose fund-price and reserve data through AWS services.
+                    Serve real-time ETF prices through a Lambda, DynamoDB, and
+                    API Gateway backend.
                   </span>
                 </li>
 
                 <li>
                   <span class="step-number" aria-hidden="true">2</span>
                   <span>
-                    Use Chainlink CRE to deliver feeds and verify collateral
-                    on-chain.
+                    Chainlink CRE reads that price plus on-chain collateral,
+                    computes the collateralization ratio, and writes price and
+                    health back on-chain through DON consensus.
                   </span>
                 </li>
 
                 <li>
                   <span class="step-number" aria-hidden="true">3</span>
                   <span>
-                    Mint, redeem, and rebalance fund tokens against the verified
-                    reserves.
+                    Deposit USDC to mint the token, burn to unlock, and liquidate
+                    undercollateralized positions.
                   </span>
                 </li>
               </ol>

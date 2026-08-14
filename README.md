@@ -18,7 +18,7 @@ Explore AWS sample implementations for financial messaging integration, settleme
 | Use case | Repo | Builds on |
 | --- | --- | --- |
 | Issue and redeem tokenized commercial bank deposits | [Tokenized deposits](https://github.com/aws-samples/sample-tokenized-deposits-settlement) | Bridging financial messaging systems |
-| Issue a tokenized fund backed by verifiable price and reserve data | [Tokenized Fund (ETF)](https://github.com/aws-samples/sample-tokenized-fund) | CRE Price Feeds & Proof of Reserves |
+| Mint a synthetic token that tracks an S&P 500 ETF price as USDC-collateralized debt, without holding the underlying shares | [Synthetic tokenized equity](https://github.com/aws-samples/sample-tokenized-fund) | CRE Price Feeds & Proof of Reserves |
 | Settle tokenized securities atomically (Delivery versus Payment) | [Digital Asset DvP](https://github.com/aws-samples/sample-digital-asset-delivery-vs-payment) | — |
 | Agentic commerce with autonomous stablecoin micropayments and refunds | [Agentic Payments](https://github.com/aws-samples/sample-agentic-serverless-payments) | — |
 
